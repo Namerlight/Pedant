@@ -1,0 +1,27 @@
+/* All app colors live here (Slate + Teal theme).
+   Every other style file uses these names, e.g. color: var(--accent).
+   To tweak a color across the whole app, change it here.
+   Note: --bg-titlebar and --text are also copied into src/main/index.ts
+   (titleBarOverlay), because Windows draws the min/max/close buttons itself. */
+
+:root {
+  --bg-titlebar: #010409; /* title bar */
+  --bg-panel: #0d1117; /* Sources + Feedback panels */
+  --bg-editor: #161b22; /* writing area */
+  --bg-toolbar: #161b22; /* editor toolbar, dropdowns, inputs */
+  --border: #30363d; /* lines between panels */
+  --divider: #30363d; /* small separators inside bars */
+  --text: #c9d1d9;
+  --text-muted: #8b949e; /* panel headings, secondary text */
+  --hover: #21262d; /* button hover background */
+  --accent: #3fc1b3; /* main accent: active buttons, cursor, selection, focus, scrollbars */
+  --accent-soft: #123b39; /* active toolbar button background */
+  --accent-2: #d2a8ff; /* secondary accent: title bar gradient, source markers, Sources badge */
+  --mark: #1c4a46; /* highlighter color */
+  --link: #58a6ff;
+  --chip: #123b39; /* link chips on feedback cards */
+  /* Feedback card colors: muted, distinct from each other and from the accents. */
+  --card-factcheck: #5b95d6; /* steel blue, a bit brighter so fact checks stand out more */
+  --card-canon: #9686c4; /* muted lavender */
+  color-scheme: dark; /* dark scrollbars and form controls */
+}

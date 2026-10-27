@@ -1,0 +1,122 @@
+/* Styles for the Tiptap editor (EditorPanel + EditorToolbar).
+   Loosely copies the dark mode of Tiptap's "Simple" template. */
+
+/* The editor panel has no padding so the toolbar sits flush along its top edge. */
+.editor-panel {
+  padding: 0;
+  overflow: hidden;
+}
+
+/* ---------- Toolbar ---------- */
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap; /* wrap onto a second row if the window is narrow */
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 52px; /* same height as the side panel headers */
+  padding: 8px;
+  background: var(--bg-toolbar);
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+
+/* While the user is typing in the editor, the line under the toolbar turns accent-colored. */
+.editor-panel:focus-within .editor-toolbar {
+  border-bottom-color: var(--accent);
+}
+
+.tb-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.tb-button:hover {
+  background: var(--hover);
+  color: var(--text);
+}
+
+/* "active" = this format applies to the text under the cursor */
+.tb-button.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.tb-button:disabled {
+  opacity: 0.35;
+  cursor: default;
+  background: transparent;
+}
+
+.tb-divider {
+  width: 1px;
+  height: 20px;
+  margin: 0 6px;
+  background: var(--divider);
+}
+
+.tb-select,
+.tb-link-input {
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  background: var(--bg-toolbar);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.tb-link-input {
+  width: 200px;
+}
+
+/* ---------- Writing area ---------- */
+.editor-body {
+  flex: 1;
+  display: flex; /* lets the editable area below stretch to fill the panel */
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 16px 24px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* .tiptap is the class Tiptap puts on the editable area */
+.editor-body .tiptap {
+  flex: 1;
+  outline: none; /* hide the browser's focus outline */
+  caret-color: var(--accent); /* the blinking text cursor */
+}
+
+.tiptap h1,
+.tiptap h2,
+.tiptap h3 {
+  line-height: 1.2;
+  margin: 1em 0 0.4em;
+}
+
+.tiptap blockquote {
+  margin: 1em 0;
+  padding-left: 1em;
+  border-left: 3px solid var(--accent);
+  color: var(--text-muted);
+}
+
+.tiptap mark {
+  background: var(--mark);
+  color: inherit;
+  border-radius: 2px;
+}
+
+.tiptap a {
+  color: var(--link);
+  text-decoration: underline;
+}
